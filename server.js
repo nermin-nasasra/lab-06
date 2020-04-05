@@ -26,28 +26,33 @@ app.get('/location', (request, response) => {
   });
 
 
-
-// app.get('/', (request, response) => {
-//   response.status(200).send('Home Page!');
-// });
-// app.get('/bad', (request, response) => {
-//   throw new Error('oh nooooo!');
-// });
-
+app.get('/weather', (request, response) => {
+    try {
+      const weatherAll = [];
+      const weatherData = require('./data/darksky.json');
+      for (let i = 0; i < weatherData.data.length; i++) {
+        const locationData = new Weather(weatherData, i);
+        weatherAll.push(locationData);
+      }
+      response.status(200).json(weatherAll);
+    } catch (error) {
+      errorHandler(error, request, response);
+    }
+  });
+  function Weather(weatherData,i) {
+      this.description = weatherData.data[i].weather.description;
+      this.time = weatherData.data[i].valid_date;
+    }
 
 
 
 app.use('*', notFoundHandler);
-
-// HELPER FUNCTIONS
 function notFoundHandler(request, response) {
-  response.status(404).send('NOT FOUND!!');
+  response.status(500).send('Sorry, something went wrong');
 }
-
 
 
 function errorHandler(error, request, response) {
   response.status(500).send(error);
 }
-// Make sure the server is listening for requests
 app.listen(PORT, () => console.log(`the server is up and running on ${PORT}`));
