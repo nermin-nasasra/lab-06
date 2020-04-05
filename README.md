@@ -1,5 +1,5 @@
 # lab-06
-Number and name of feature: 2. Locations: As a user of City Explorer, I want to enter the name of a location so that I can see data about the area of interest to me.
+Number and name of feature: 2. Locations
 
 Estimate of time needed to complete:1 hour
 
@@ -17,9 +17,21 @@ Estimate of time needed to complete:1 hour
 
 Start time: 6pm
 
-Finish time:
+Finish time:9pm
 
-Actual time needed to complete:
+Actual time needed to complete:3hours
+
+
+Number and name of feature: Errors
+
+Estimate of time needed to complete:1 hour
+
+Start time: 10pm
+
+Finish time:11pm
+
+Actual time needed to complete:1hours
+
 
 
 
